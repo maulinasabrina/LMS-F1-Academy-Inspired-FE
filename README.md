@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# Motorsport Performance LMS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **frontend Learning Management System (LMS)** built with **React + TypeScript**.
+The idea is to simulate a structured training platform for motorsport drivers where users progress through learning modules like technical skills, physical training, mental performance, and race strategy.
 
-Currently, two official plugins are available:
+The learning structure is loosely inspired by the **F1 Academy driver development guidebook** (women in motorsport). I used the general idea of the development pathway as inspiration only. The content in this project is **dummy data and not intended for commercial use**, since this is purely a frontend learning/portfolio project.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **React**
+* **TypeScript**
+* **React Router**
+* **Tailwind CSS**
+* **Radix UI primitives**
+* **Framer Motion** (animations)
+* **Sonner** (toast notifications)
+* **Lucide Icons**
+* **cn utility** for merging Tailwind classes
 
-## Expanding the ESLint configuration
+The UI is built using **small reusable UI primitives / building blocks** instead of large component frameworks.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Since this is a frontend-only project, the data is stored locally.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src
+ ├─ components
+ ├─ hooks
+ ├─ pages
+ ├─ data
+ │   └─ lmsData.ts
+ └─ lib
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The **data folder** contains:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* interfaces (`Lesson`, `Module`, etc.)
+* dummy course data
+* dashboard data (progress, goals, activity)
+* user profile data
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## App Flow
+
+The user flow is simple:
+
 ```
+Dashboard
+   ↓
+Modules Page
+   ↓
+Module Detail
+   ↓
+Lesson Page
+   ↓
+Individual Development Program (IDP) Page
+   ↓
+Progress Page
+   ↓
+Profile Page
+```
+
+Each module contains multiple lesson types:
+
+* video
+* reading
+* quiz
+* exercise
+* reflection
+
+The lesson page dynamically renders the correct UI depending on the lesson type.
+
+---
+
+## Why I Built This
+
+I love motorsport and I spend a lot of time learning about it. When I discovered **F1 Academy**, I found that they have a development guidebook for drivers. That inspired the structure of this project.
+
+Since I'm a software engineer and I want to work in motorsport one day, I decided to start with what I can build right now — a frontend platform that simulates a driver development LMS.
+
+It's a small step, but hopefully **one step closer to that goal**.
