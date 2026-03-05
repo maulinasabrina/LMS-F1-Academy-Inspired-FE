@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Daftarkan variabel agar menjadi utility class */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-level-0: hsl(var(--level-0));
+  --color-level-1: hsl(var(--level-1));
+  --color-level-2: hsl(var(--level-2));
+  --color-level-3: hsl(var(--level-3));   
+  --color-level-4: hsl(var(--level-4));
+  --color-level-5: hsl(var(--level-5));
+  --color-level-6: hsl(var(--level-6));
+  --color-level-7: hsl(var(--level-7));
+
+  
+
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Gunakan format HSL murni tanpa fungsi hsl() di sini */
+    --background: 220 20% 7%;
+    --foreground: 210 20% 95%;
+    --card: 220 18% 10%;
+    --card-foreground: 210 20% 95%;
+    --popover: 220 18% 10%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 250 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 215 15% 55%;
+    --success: 120 60% 50%;
+    --success-foreground: 120 60% 95%;
+    --warning: 40 90% 50%;
+    --warning-foreground: 40 90% 95%;
+    --accent: 195 90% 50%;
+    --accent-foreground: 220 20% 7%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 250 60% 55%;
+    --radius: 0.75rem;
+
+    --level-0: 150 60% 45%;
+    --level-1: 50 90% 50%;
+    --level-2: 210 80% 55%;
+    --level-3: 0 72% 51%;
+    --level-4: 270 60% 55%;
+    --level-5: 25 90% 55%;
+    --level-6: 30 50% 40%;
+    --level-7: 220 10% 30%;
+
+
+
+
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@utility glass-card {
+  @apply bg-card/60 backdrop-blur-xl border border-border/50;
+}
+@utility glow-primary {
+  box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.4);
+  text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+}
+
+/* Gunakan standar CSS untuk gradient/glow agar lebih stabil */
+@layer utilities {
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow-primary {
+    box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.4);
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+  .glow-accent {
+    box-shadow: 0 0 30px -5px hsl(var(--accent) / 0.3);
+  }
+}
