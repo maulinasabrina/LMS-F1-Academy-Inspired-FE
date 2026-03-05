@@ -1,5 +1,8 @@
 # Motorsport Performance LMS
 
+<img width="1893" height="900" alt="image" src="https://github.com/user-attachments/assets/c66b41ee-3d40-4d4b-9c64-0016514d551e" />
+
+
 This is a **frontend Learning Management System (LMS)** built with **React + TypeScript**.
 The idea is to simulate a structured training platform for motorsport drivers where users progress through learning modules like technical skills, physical training, mental performance, and race strategy.
 
